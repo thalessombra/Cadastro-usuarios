@@ -1,7 +1,8 @@
-import './App.css'
+
 import { useEffect,useState, useRef } from 'react'
 import {BsFillTrashFill} from 'react-icons/bs'
 import api from '../services/api.js'
+import styles from "./App.module.css"
 
 function Home() {
   
@@ -43,8 +44,8 @@ useEffect(() => {
 
   return (
     
-      <div className='Container'>
-      <form>
+      <div className={styles.container}>
+      <form className={styles.form}>
         <h1>Cadastro de usuários</h1>
         <input name='Nome' type='text' placeholder='Digite o nome do usuário' ref={inputName} />
         <input name='Email' type='email' placeholder='Digite o email' ref={inputEmail} />
@@ -52,7 +53,7 @@ useEffect(() => {
         <button type='button' onClick={createUsers}>Cadastrar</button>
       </form>
 {users.map(user => 
-<div key={user.id} className='card' >
+<div key={user.id} className={styles.card} >
         <div>
           <p>Nome: <span>{user.name}</span></p>
           <p>Idade: <span>{user.age}</span> </p>
